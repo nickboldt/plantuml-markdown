@@ -10,8 +10,13 @@ with open(path.join(here, "README.md")) as f:
 with open(path.join(here, 'requirements.txt')) as f:
     install_requirements = f.read().splitlines()
 
-with open(path.join(here, 'test-requirements.txt')) as f:
-    test_requirements = f.read().splitlines()
+# fail gracefully if test-requirements.txt file can't be found
+try:
+    print(f"Load {here} / test-requirements.txt")
+    with open(path.join(here, 'test-requirements.txt')) as f:
+        test_requirements = f.read().splitlines()
+except FileNotFoundError:
+    test_requirements = []
 
 setuptools.setup(
     name="plantuml-markdown",
