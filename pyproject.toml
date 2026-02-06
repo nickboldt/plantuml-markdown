@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plantuml-markdown"
+version = "3.11.2"
+description = "A PlantUML plugin for Markdown"
+readme = "README.md"
+license = { text = "BSD" }
+requires-python = ">=3.11"
+authors = [
+    { name = "Michele Tessaro", email = "michele.tessaro.tex@gmail.com" }
+]
+keywords = ["Markdown", "typesetting", "include", "plugin", "extension"]
+urls = { Homepage = "https://github.com/mikitex70/plantuml-markdown" }
+classifiers = [
+    "Programming Language :: Python",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Filters",
+    "Topic :: Text Processing :: Markup :: HTML",
+]
+dependencies = [
+    "Markdown",
+    "requests",
+    "six"
+]
+
+[project.optional-dependencies]
+test = [
+    "httpservermock>=0.1.0",
+    "mkdocs>=1.6.1",
+    "mock>=5.2.0",
+    "nose2>=0.15.1",
+    "pymdown-extensions>=10.20.1",
+]
+
+[tool.setuptools.packages.find]
+include = ["plantuml_markdown*"]
+
+[dependency-groups]
+build = [
+    "calver>=2025.10.20",
+    "click==8.3.1",
+    "cython>=3.2.4",
+    "flit-core>=3.11,<4",
+    "ghp-import==2.1.0",
+    "hatch-nodejs-version>=0.3.0",
+    "hatch-requirements-txt>=0.4.1",
+    "hatch-vcs<0.6.0,>=0.4.0",
+    "hatchling>=0.21.1",
+    "pyyaml",
+    "setuptools>=80.10.2",
+    "setuptools-scm[toml]>=8.0",
+    "wheel>=0.46.3",
+]
+runtime = [
+    "Markdown",
+    "requests",
+    "six"
+]
+
+test = [
+    "httpservermock>=0.1.0",
+    "mkdocs>=1.6.1",
+    "mock>=5.2.0",
+    "nose2>=0.15.1",
+    "pymdown-extensions>=10.20.1",
+]
+
+[project.entry-points."markdown.extensions"]
+plantuml_markdown = "plantuml_markdown:PlantUMLMarkdownExtension"

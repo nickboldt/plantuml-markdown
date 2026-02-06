@@ -1,0 +1,5 @@
+httpservermock==0.1.0
+mkdocs==1.6.1
+mock==5.2.0
+nose2==0.15.1
+pymdown-extensions>=10.20.1
